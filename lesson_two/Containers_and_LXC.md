@@ -68,10 +68,10 @@ You can check this inside the container with the free -m command
 The second line starts the container automatically.
 
 ```
-kiselev@vpc:~$ lxc-attach -n testcontainer
+kiselev@vpc:~$ sudo sudo lxc-ls --fancy
 ```
 
-![autoplay](./img/lsx_auto.png)
+![autoplay](./img/lsx_auto_restart.png)
 
 At this stage, questions may arise, since there is a lot of literature and manuals on the Internet that suggest limiting containers in a slightly different way:
 

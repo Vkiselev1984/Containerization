@@ -264,6 +264,10 @@ Let's exit the container and try to find the created file in the previously crea
 kiselev@vpc:~$ sudo cat /doc/folder/test.txt
 ```
 
+![test](./img/test.png)
+
+As you can see, the file was created in the container and we can read it.
+
 ## Basic Docker Commands
 
 The following is a list of some of the most common Docker commands:

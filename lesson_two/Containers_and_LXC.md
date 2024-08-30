@@ -76,7 +76,7 @@ kiselev@vpc:~$ sudo sudo lxc-ls --fancy
 At this stage, questions may arise, since there is a lot of literature and manuals on the Internet that suggest limiting containers in a slightly different way:
 
 ```
-kiselev@vpc:~$ memory.limit_in_bytes 400
+kiselev@vpc:~$ sudo memory.limit_in_bytes 400
 ```
 
 Various parameters can be added to this file. For example:The container will automatically start when the system starts.
@@ -84,23 +84,19 @@ Various parameters can be added to this file. For example:The container will aut
 You can check this with the command:
 
 ```
-kiselev@vpc:~$ lxc-ls -f
+kiselev@vpc:~$ sudo lxc-ls -f
 ```
 
 The container is now in the shell. You can now add the necessary packages to the container:
 
 ```
-kiselev@vpc:~$ apt-get update
-kiselev@vpc:~$ apt-get install nginx
+kiselev@vpc:~$ sudo apt-get update
+kiselev@vpc:~$ sudo apt-get install nginx
 ```
 
 ```
-kiselev@vpc:~$ lxc-stop -n testcontainer
-kiselev@vpc:~$ lxc-destroy -n testcontainer
+kiselev@vpc:~$ sudo lxc-stop -n testcontainer
+kiselev@vpc:~$ sudo lxc-destroy -n testcontainer
 ```
 
 The first command stops the container. The second command deletes the container.
-
-```
-kiselev@vpc:~$ lxc-start -n testcontainer
-```

@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx:/usr/share/nginx/html
+    depends_on:
+      - php-fpm
+    networks:
+      - my_network
+      
+  php-fpm:
+    image: php:8-fpm
+    volumes:
+      - ./src:/var/www/html
+    networks:
+     - my_network
+
+  adminer:
+    image: adminer
+    ports:
+      - "8888:8080"
+    networks:
+      - my_network
+
+  db:
+    build:
+      context: .
+      dockerfile: ./db/Dockerfile
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: my_database
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - backup_data:/backup
+    networks:
+      - my_network
+
+volumes:
+  pgdata:
+  backup_data:
+
+networks:
+  my_network:
+    driver: bridge

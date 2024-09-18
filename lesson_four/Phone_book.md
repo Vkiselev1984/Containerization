@@ -67,7 +67,3 @@ When we launch the container, we will see a command prompt. Let's test the appli
 ![phone_book_test](./img/phone_book_test.png)
 
 The application is working, a new entry has been added and is shown in the phone directory table.
-
-```
-
-```
